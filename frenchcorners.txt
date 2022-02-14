@@ -1,0 +1,39 @@
+---
+title: Calendrier des cours de français gratuits de l'association SupEducation
+heading: Calendrier des cours de français gratuits de l'association SupEducation
+subtitle: >-
+  Les cours de français sont des cours pour pratiquer le français oral avec des bénévoles natifs pour les niveaux avancés et basés sur l'entraide.
+sitemap: true
+---
+
+<section class="diagonal patterned">
+	<div class="container">
+	<h3 class="editable">
+				Calendrier des cours SupEducation
+			</h3>
+  Pour rejoindre les cours, vous pouvez contacter Soukaina pour qu'elle vous fasse une adresse ...@supeducation.org
+  Avec cette adresse vous pourrez rejoindre les classes sur Google Classroom et communiquer avec nous sur Google Chat.
+		  <h3 id="paris_time"></h3>
+			<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;src=Y19pYnJzc3Z2YnAwNWVkZDJzcTN0Nm9vaWU4b0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=Y182aDNxZTBtdmVuaTZtbTVkamFncmxiMDVnc0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=Y19rdmhvcmIxMmdoZnN0ZTU5M2g1dm50aDM3NEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=Y19vb2toc2xscTdsaXVtb3J0MWhtbHFrM3Yzc0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=Y19xN2RzMXA5YzVzaXQ3Nmt1ZmpzMGVjajgya0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=Y19jNGE0NDQwcXY1dGthOGM1bG90OGh1MW5qZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%237986CB&amp;color=%238E24AA&amp;color=%23B39DDB&amp;color=%237CB342&amp;color=%234285F4&amp;color=%23F09300&amp;mode=AGENDA&amp;showTabs=1&amp;showPrint=0&amp;showCalendars=1&amp;showTitle=1&amp;title=Planning%20des%20cours%20-%20Heure%20fran%C3%A7aise" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+			<p><a class="button alt" href="{{ site.baseurl }}/adhesion/">S'inscrire gratuitement</a></p>
+	</div>
+</section>
+        
+<script>
+let d = new Date();
+let localTime = d.getTime();
+let localOffset = d.getTimezoneOffset() * 60000;
+        let utc = localTime + localOffset;
+        let paris = utc + ( 3600000 )
+        let nd = new Date (paris);
+        let hour = nd.getHours ()
+        let minute = nd.getMinutes ()
+        let minute_correcter = minute_display_correcter ()
+        function minute_display_correcter ()
+        {
+            if (minute < 10)
+            minute = '0' + minute
+        }
+        let time = hour + ':' + minute
+        document.getElementById ('paris_time').innerHTML = ( 'En France, il est ' + time )
+        </script>

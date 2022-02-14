@@ -1,0 +1,37 @@
+
+    <link rel="stylesheet" href="https://supeducation.org/intl-tel-input/examples/css/prism.css">
+    <link rel="stylesheet" href="https://supeducation.org/intl-tel-input/build/css/intlTelInput.css?1585994360633">
+    <link rel="stylesheet" href="https://supeducation.org/intl-tel-input/examples/css/countrySync.css?1585994360633">
+    <script src="https://supeducation.org/intl-tel-input/examples/js/prism.js"></script>
+    <script src="https://supeducation.org/intl-tel-input/build/js/intlTelInput.js?1585994360633"></script>
+
+  <label>Telephone number</label>
+  <input id="phone" type="tel">
+
+     <form>
+       <input type="text" id="outputcountrycode" placeholder="Country Code" name="outputcountrycode">
+     </form>
+
+  
+  
+  <script>
+    // get the country data from the plugin
+var countryData = window.intlTelInputGlobals.getCountryData(),
+  input = document.querySelector("#phone");
+
+// init plugin
+var iti = window.intlTelInput(input, {
+  utilsScript: "https://supeducation.org/intl-tel-input/build/js/utils.js?<%= time %>" // just for formatting/placeholders etc
+});
+
+// set it's initial value
+document.getElementById('outputcountrycode').value = iti.getSelectedCountryData().iso2;
+
+// listen to the telephone input for changes
+input.addEventListener('countrychange', function(e) {
+  document.getElementById('outputcountrycode').value = iti.getSelectedCountryData().iso2;
+});
+
+
+  </script>
+

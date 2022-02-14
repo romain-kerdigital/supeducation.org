@@ -1,0 +1,85 @@
+  <link rel="stylesheet" href="https://supeducation.org/intl-tel-input/build/css/intlTelInput.css">
+  <link rel="stylesheet" href="https://supeducation.org/intl-tel-input/build/css/demo.css">
+  <style>
+    .iti__flag {background-image: url("https://supeducation.org/intl-tel-input/build/img/flags.png");}
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .iti__flag {background-image: url("https://supeducation.org/intl-tel-input/build/img/flags@2x.png");}
+}
+.hide {
+    display:none;
+  }
+  </style>
+  <form>
+  <div class="form-item">
+  <label>Telephone number</label>
+  <input id="phone" type="tel">
+</div>
+
+<div class="form-item">
+  <label>Address</label>
+  <input type="text" placeholder="House name/number">
+  <input type="text" placeholder="City">
+  <input type="text" placeholder="State">
+  <input type="text" placeholder="Zip code">
+  <select id="address-country"></select>
+</div>
+  </form>
+
+<script>
+// get the country data from the plugin
+var countryData = window.intlTelInputGlobals.getCountryData(),
+  input = document.querySelector("#phone"),
+  addressDropdown = document.querySelector("#address-country");
+
+// init plugin
+var iti = window.intlTelInput(input, {
+  utilsScript: "../../build/js/utils.js?1613236686837" // just for formatting/placeholders etc
+});
+
+// populate the country dropdown
+for (var i = 0; i < countryData.length; i++) {
+  var country = countryData[i];
+  var optionNode = document.createElement("option");
+  optionNode.value = country.iso2;
+  var textNode = document.createTextNode(country.name);
+  optionNode.appendChild(textNode);
+  addressDropdown.appendChild(optionNode);
+}
+// set it's initial value
+addressDropdown.value = iti.getSelectedCountryData().iso2;
+
+// listen to the telephone input for changes
+input.addEventListener('countrychange', function(e) {
+  addressDropdown.value = iti.getSelectedCountryData().iso2;
+});
+
+// listen to the address dropdown for changes
+addressDropdown.addEventListener('change', function() {
+  iti.setCountry(this.value);
+});
+    
+  //  window.intlTelInput(input, {
+      // allowDropdown: false,
+      // autoHideDialCode: false,
+      // autoPlaceholder: "off",
+      // dropdownContainer: document.body,
+      // excludeCountries: ["us"],
+      // formatOnDisplay: false,
+      // geoIpLookup: function(callback) {
+      //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+      //     var countryCode = (resp && resp.country) ? resp.country : "";
+      //     callback(countryCode);
+      //   });
+      // },
+      // hiddenInput: "full_number",
+      // initialCountry: "auto",
+      // localizedCountries: { 'de': 'Deutschland' },
+      // nationalMode: false,
+      // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+      // placeholderNumberType: "MOBILE",
+      // preferredCountries: ['cn', 'jp'],
+ //      separateDialCode: true,
+   //   utilsScript: "https://supeducation.org/intl-tel-input/build/js/utils.js",
+  //  });
+  </script>

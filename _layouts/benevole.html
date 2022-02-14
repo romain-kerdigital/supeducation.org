@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<section class="hero diagonal">
+	<div class="container">
+<div class="benevole-page">
+  <div class="benevole-page-image-name-position">
+  <div class="benevole-page-image"><img src="{% include relative-src.html src=page.image_path %}" alt="{{ page.name }}"/></div>
+    <div class="benevole-page-name-position">
+<div class="benevole-page-name"><h1>{{ page.name }}</h1></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="diagonal patterned">
+	<div class="container">
+<div class="benevole-page">
+  <div class="benevole-page-content"><p>{{ page.content | markdownify }}</p></div>
+</div>
+</div>
+</section>
+
+
+<section class="diagonal alternate">
+	<div class="container">
+<h3 class="editable">
+	Les missions bénévoles de {{ page.name }}
+</h3>
+  
+
+  {% for mission-benevole in page.missions %} 
+  {% for mission in site.missions %}
+    {% if mission.slug == mission-benevole %}
+    	<a href="{{ site.baseurl }}{{ mission.url }}">
+			  	<img src="{{ site.baseurl }}{{ mission.image_path }}" alt="{{ mission.slug }}">
+			  	<div> <p>{{ mission.name }}</p></div></a>
+    {% endif %}
+ {% endfor %}
+ {% endfor %}
+
+</div>
+</section>
+
+<section class="diagonal">
+  	<div class="container">
+<div class="fb-comments" data-href="https://supeducation.org/{{ page.url }}" data-numposts="5" data-width="100%"></div>
+</div>
+</section>
+  

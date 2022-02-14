@@ -1,0 +1,506 @@
+---
+title: Planning
+heading: Planning
+subtitle: >-
+  Vous pouvez planifier des séances sur cette page.
+sitemap: false
+---
+    <style>
+      .fancy {
+        position: relative;
+        background-color: green;
+        padding: 2rem;
+      }
+
+      .fancy::before {
+        content: "";
+        p {
+          color: black;
+        }
+        position : absolute;
+        z-index  : -1;
+        bottom   : 15px;
+        right    : 5px;
+        width    : 50%;
+        top      : 80%;
+        max-width: 200px;
+
+        box-shadow: 0px 13px 10px black;
+        transform: rotate(4deg);
+      }
+    </style>
+    
+<section class="diagonal alternate">
+	<div class="container">
+    <form action="https://supeducation.org/planning-success" method="post" id="planning-form" class="contact-form"> <!-- Redirect page -->
+		<input type="hidden" name="_hook" value="https://hook.integromat.com/ogjlsuktqh4gfc1tobx6pk9cctorh1s6" /> <!-- Webhook -->
+		<input type="text" name="_gotcha" style="display: none;"> <!-- Honeypot -->
+    
+    <label for="startingdate">Date de début</label>
+    <input type="date" id="startingdate" name="startingdate" required >
+    
+    <label for="sessionnumber">Nombre de semaines (1 séance par semaine)</label>
+    <input type="number" id="sessionnumber" name="sessionnumber" oninput="enddate()" min="1" max="10" required>
+    <script>
+      function enddate(){
+        var d = new Date(document.getElementById('startingdate').value);
+        var weekday = new Array(7);
+        weekday[0] = "dimanche";
+        weekday[1] = "lundi";
+        weekday[2] = "mardi";
+        weekday[3] = "mercredi";
+        weekday[4] = "jeudi";
+        weekday[5] = "vendredi";
+        weekday[6] = "samedi";
+        var n = weekday[d.getDay()];
+      //var endingdate = selecteddate+sessionnumber*7;
+      document.getElementById('startdate').innerHTML = document.getElementById('startingdate').value;
+      document.getElementById('startdateweekday').innerHTML = n;
+      document.getElementById('number').innerHTML = document.getElementById('sessionnumber').value;
+      //document.getElementById('enddate').innerHTML = endingdate;
+      }
+    </script>
+
+		<label for="registrationtype">Êtes-vous l'organisateur de la séance ?</label>
+    <div class="select"><select name="registrationtype" id="registrationtype" required>
+      <option value="" selected disabled hidden>Choisir</option>
+      <option value="organizer">Je serai l'organisateur</option>
+      <option value="someoneelse">Je remplis le formulaire pour quelqu'un d'autre</option>
+    </select></div>
+		
+		<div id="emailorganizer-div">
+      <div id="emailorganizer-label"><label for="email">Email de l'organisateur</label></div>
+      <div id="youremailorganizer-label"><label for="email">Votre email</label></div>
+      <input type="email" name="emailorganizer" id="emailorganizer" placeholder="prenom.nom@supeducation.org">
+      <span id="emailorganizer-toValidateMessage"></span>
+    </div>
+    
+    <div id="emailsomeoneelse-div">
+      <label for="emailsomeoneelse">Votre email</label>
+      <input type="email" name="emailsomeoneelse" id="emailsomeoneelse" placeholder="prenom.nom@supeducation.org">
+      <span id="emailsomeoneelse-toValidateMessage"></span>
+    </div>
+    
+    <label for="existcoorganizer">Est-ce que vous animerez la séance avec un organisateur plus expérimenté ?</label>
+    <div class="select"><select name="existcoorganizer" id="existcoorganizer" required>
+      <option value="" selected disabled hidden>Choisir</option>
+      <option value="alone">J'assurerai la séance seul</option>
+      <option value="coorganizer">Je serai secondé dans ma séance par un organisateur plus expérimenté</option>
+    </select></div>
+		
+    <div id="emailcoorganizer-div">
+      <label for="emailcoorganizer">Email du co-organisateur</label>
+      <input type="email" name="emailcoorganizer" id="emailcoorganizer" placeholder="prenom.nom@supeducation.org">
+      <span id="emailcoorganizer-toValidateMessage"></span>
+    </div>
+
+    <label for="sessiontype">Type de séance</label>
+    <div class="select"><select name="sessiontype" id="sessiontype" required>
+      <option value="" selected disabled hidden>Choisir</option>
+      <option value="n3">N3 - French Corner avancé</option>
+      <option value="n2">N2 - French Corner intermédiaire</option>
+      <option value="n1">N1 - French Corner débutant</option>
+      <!--<option value="nouveaux-inscrits">Séance d'accueil</option>-->
+      <!--<option value="test">Test</option>-->
+    </select></div>
+  
+    <div id="n3-div">
+      <label for="n3-schedule">Créneau French Corner avancé</label>
+	    <div class="select"><select name="n3-schedule" id="n3-schedule">
+        <option value="" selected disabled hidden>Choisir</option>
+        <option value="01:00">01:00 - 01:45</option>
+        <option value="04:00">04:00 - 04:45</option>
+        <option value="07:00">07:00 - 07:45</option>
+        <option value="10:00">10:00 - 10:45</option>
+        <option value="13:00">13:00 - 13:45</option>
+        <option value="16:00">16:00 - 16:45</option>
+        <option value="19:00">19:00 - 19:45</option>
+        <option value="22:00">22:00 - 22:45</option>
+      </select></div>
+    </div>
+    
+    <div id="n2-div">
+      <label for="n2-schedule">Créneau French Corner intermédiaire</label>
+	    <div class="select"><select name="n2-schedule" id="n2-schedule">
+        <option value="" selected disabled hidden>Choisir</option>
+        <option value="00:00">00:00 - 00:45</option>
+        <option value="03:00">03:00 - 03:45</option>
+        <option value="06:00">06:00 - 06:45</option>
+        <option value="09:00">09:00 - 09:45</option>
+        <option value="12:00">12:00 - 12:45</option>
+        <option value="15:00">15:00 - 15:45</option>
+        <option value="18:00">18:00 - 18:45</option>
+        <option value="21:00">21:00 - 21:45</option>
+      </select></div>
+    </div>
+    
+    <div id="n1-div">
+      <label for="n1-schedule">Créneau French Corner débutant</label>
+	    <div class="select"><select name="n1-schedule" id="n1-schedule">
+        <option value="" selected disabled hidden>Choisir</option>
+        <option value="02:00">02:00 - 02:45</option>
+        <option value="05:00">05:00 - 05:45</option>
+        <option value="08:00">08:00 - 08:45</option>
+        <option value="11:00">11:00 - 11:45</option>
+        <option value="14:00">14:00 - 14:45</option>
+        <option value="17:00">17:00 - 17:45</option>
+        <option value="20:00">20:00 - 20:45</option>
+        <option value="23:00">23:00 - 23:45</option>
+      </select></div>
+      <label for="n1-language">Langue du French Corner</label>
+      <div class="select"><select name="n1-language" id="n1-language">
+        <option value="" selected disabled hidden>Choisir</option>
+        <option value="en">Anglais</option>
+        <option value="ar">Arabe</option>
+      </select></div>
+    </div>
+    
+    <div id="n0-div">
+      <label for="n0-schedule">Créneau French Corner découverte</label>
+	    <div class="select"><select name="n0-schedule" id="n0-schedule">
+        <option value="" selected disabled hidden>Choisir</option>
+        <option value="03:00">03:00 - 03:45</option>
+        <option value="06:00">06:00 - 06:45</option>
+        <option value="09:00">09:00 - 09:45</option>
+        <option value="15:00">15:00 - 15:45</option>
+        <option value="20:00">20:00 - 20:45</option>
+        <option value="00:00">00:00 - 00:45</option>
+      </select></div>
+      <label for="n0-language">Langue du French Corner</label>
+      <div class="select"><select name="n0-language" id="n0-language">
+        <option value="" selected disabled hidden>Choisir</option>
+        <option value="en">Anglais</option>
+        <option value="ar">Arabe</option>
+      </select></div>
+    </div>
+	
+	  <!--<div id="nouveaux-inscrits-div">
+      <label for="nouveaux-inscrits-schedule">Créneau Séance d'accueil</label>
+	    <div class="select"><select name="nouveaux-inscrits-schedule" id="nouveaux-inscrits-schedule">
+        <option value="" selected disabled hidden>Choisir</option>
+        <option value="10:00">10:00 - 10:45</option>
+        <option value="18:00">18:00 - 18:45</option>
+      </select></div>
+      <label for="nouveaux-inscrits-language">Langue de la séance d'accueil</label>
+      <div class="select"><select name="nouveaux-inscrits-language" id="nouveaux-inscrits-language">
+        <option value="" selected disabled hidden>Choisir</option>
+        <option value="en">Anglais</option>
+        <option value="ar">Arabe</option>
+      </select></div>
+    </div>
+    -->
+    
+    <label for="description">Description (Optionnel)</label>
+    <textarea name="description" id="description" placeholder="Décrire ici le déroulement habituel des séances"></textarea>
+
+		<div class="fancy" id="sessionnumberexplanation">
+      <p>Vos séances démarreront le <b><span id="startdateweekday"></span></b> <b><span id="startdate"></span></b></p>
+      <p>Elles auront lieu une fois par semaine le <b><span id="startdateweekday"></span></b> pendant <b><span id="number"></span></b> semaines.</p>
+    </div>
+    
+    <div class="checkbox">
+      <label for="authorization" class="container"> Je confirme que je suis l'organisateur ou que j'ai l'autorisation de l'organisateur pour planifier ces séances.
+      <input type="checkbox" name="authorization" id="authorization" required>
+      <span class="checkmark"></span>
+      </label>
+    </div>
+    
+    <div class="checkbox">
+      <label for="conflict" class="container"> Je confirme avoir vérifié sur le planning qu'il n'y a pas de conflits sur cet horaire pour cette semaine ou les semaines à venir.
+      <input type="checkbox" name="conflict" id="conflict" required>
+      <span class="checkmark"></span>
+      </label>
+    </div>
+
+		<input type="submit" value="Submit" />
+	  </form>
+
+	</div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  document.getElementById('startingdate').value = new Date().toISOString().slice(0, 10);
+</script>
+<script>
+//Validate email organizer
+const emailorganizer_toValidateMessage = $("#emailorganizer-toValidateMessage");
+const emailorganizer_toValidate = $("#emailorganizer");
+const emailorganizer_regex = /^[a-z]{2,}\.[a-z]{2,}@supeducation\.org$/; // /^[a-zA-Z\- ]{2,20}$/;
+
+function emailorganizerValidate() {
+emailorganizer_toValidateMessage.text("");
+if (emailorganizer_regex.test(emailorganizer_toValidate.val())) {
+emailorganizer_toValidateMessage.text(emailorganizer_toValidate.val() + " is valid");
+emailorganizer_toValidateMessage.css("background-color", "green");
+} else {
+emailorganizer_toValidateMessage.text(emailorganizer_toValidate.val() + " is not valid. The format is firstname.lastname@supeducation.org");
+emailorganizer_toValidateMessage.css("background-color", "red");
+}
+return false;
+}
+
+
+emailorganizer_toValidate.on("input", emailorganizerValidate);
+
+//Validate email organizer
+const emailcoorganizer_toValidateMessage = $("#emailcoorganizer-toValidateMessage");
+const emailcoorganizer_toValidate = $("#emailcoorganizer");
+const emailcoorganizer_regex = /^[a-z]{2,}\.[a-z]{2,}@supeducation\.org$/; // /^[a-zA-Z\- ]{2,20}$/;
+
+function emailcoorganizerValidate() {
+emailcoorganizer_toValidateMessage.text("");
+if (emailcoorganizer_regex.test(emailcoorganizer_toValidate.val())) {
+emailcoorganizer_toValidateMessage.text(emailcoorganizer_toValidate.val() + " is valid");
+emailcoorganizer_toValidateMessage.css("background-color", "green");
+} else {
+emailcoorganizer_toValidateMessage.text(emailcoorganizer_toValidate.val() + " is not valid. The format is firstname.lastname@supeducation.org");
+emailcoorganizer_toValidateMessage.css("background-color", "red");
+}
+return false;
+}
+
+
+emailcoorganizer_toValidate.on("input", emailcoorganizerValidate);
+
+//Validate email someone else
+
+const emailsomeoneelse_toValidateMessage = $("#emailsomeoneelse-toValidateMessage");
+const emailsomeoneelse_toValidate = $("#emailsomeoneelse");
+const emailsomeoneelse_regex = /^[a-z]{2,}\.[a-z]{2,}@supeducation\.org$/; // /^[a-zA-Z\- ]{2,20}$/;
+
+function emailsomeoneelseValidate() {
+emailsomeoneelse_toValidateMessage.text("");
+if (emailsomeoneelse_regex.test(emailsomeoneelse_toValidate.val())) {
+emailsomeoneelse_toValidateMessage.text(emailsomeoneelse_toValidate.val() + " is valid");
+emailsomeoneelse_toValidateMessage.css("background-color", "green");
+} else {
+emailsomeoneelse_toValidateMessage.text(emailsomeoneelse_toValidate.val() + " is not valid. The format is firstname.lastname@supeducation.org");
+emailsomeoneelse_toValidateMessage.css("background-color", "red");
+}
+return false;
+}
+
+
+emailsomeoneelse_toValidate.on("input", emailsomeoneelseValidate);
+</script>
+
+<script>
+
+
+// After sessionnumberexplanation
+$("#sessionnumber").change(function() {
+    if ($(this).val() > 0) {
+      $('#sessionnumberexplanation').show();
+    } 
+    else {
+      $('#sessionnumberexplanation').hide();
+    }
+  });
+  $("#sessionnumber").trigger("change");
+  // After registrationtype
+  $("#registrationtype").change(function() {
+    if ($(this).val() == 'organizer') {
+      $('#emailorganizer-div').show();
+      $('#emailsomeoneelse-div').hide();
+      $('#emailorganizer-label').hide();
+      $('#youremailorganizer-label').show();
+      $('#emailorganizer').attr('required', '');
+      $('#emailsomeoneelse').removeAttr('required', '');
+      
+    } 
+    else if ($(this).val() == 'someoneelse') {
+      $('#emailorganizer-div').show();
+      $('#emailsomeoneelse-div').show();
+      $('#emailorganizer-label').show();
+      $('#youremailorganizer-label').hide();
+      $('#emailorganizer').removeAttr('required', '');
+      $('#emailsomeoneelse').attr('required', '');
+    } 
+    else {
+      $('#emailorganizer-div').hide();
+      $('#emailsomeoneelse-div').hide();
+      $('#emailorganizer-label').hide();
+      $('#youremailorganizer-label').hide();
+      $('#emailorganizer').removeAttr('required', '');
+      $('#emailsomeoneelse').removeAttr('required', '');
+    }
+  });
+  $("#registrationtype").trigger("change");
+
+  // After existcoorganizer
+  $("#existcoorganizer").change(function() {
+    if ($(this).val() == 'alone') {
+      $('#emailcoorganizer-div').hide();
+      $('#emailcoorganizer').removeAttr('required', '');
+      
+    } 
+    else if ($(this).val() == 'coorganizer') {
+      $('#emailcoorganizer-div').show();
+      $('#emailcoorganizer').attr('required', '');
+    } 
+    else {
+      $('#emailcoorganizer-div').hide();
+      $('#emailcoorganizer').removeAttr('required', '');
+      
+    }
+  });
+  $("#existcoorganizer").trigger("change");
+
+  // After sessiontype
+  $("#sessiontype").change(function() {
+    if ($(this).val() == 'n3') {
+      $('#n3-div').show();
+      $('#n3-schedule').attr('required', '');
+      $('#n2-div').hide();
+      $('#n2-schedule').val('');
+      $('#n1-div').hide();
+      $('#n1-schedule').val('');
+      $('#n1-language').val('');
+      $('#n0-div').hide();
+      $('#n0-schedule').val('');
+      $('#n0-language').val('');
+      /*$('#nouveaux-inscrits-div').hide();*/
+      $('#n1-schedule').removeAttr('required', '');
+      $('#n1-language').removeAttr('required', '');
+      $('#n0-schedule').removeAttr('required', '');
+      $('#n0-language').removeAttr('required', '');
+      /*$('#nouveaux-inscrits-schedule').removeAttr('required', '');
+      $('#nouveaux-inscrits-language').removeAttr('required', '');*/
+    } 
+    else if ($(this).val() == 'n2') {
+      $('#n2-div').show();
+      $('#n2-schedule').attr('required', '');
+      $('#n3-div').hide();
+      $('#n3-schedule').val('');
+      $('#n1-div').hide();
+      $('#n1-schedule').val('');
+      $('#n1-language').val('');
+      $('#n0-div').hide();
+      $('#n0-schedule').val('');
+      $('#n0-language').val('');
+      /*$('#nouveaux-inscrits-div').hide();*/
+      $('#n1-schedule').removeAttr('required', '');
+      $('#n1-language').removeAttr('required', '');
+      $('#n0-schedule').removeAttr('required', '');
+      $('#n0-language').removeAttr('required', '');
+      /*$('#nouveaux-inscrits-schedule').removeAttr('required', '');
+      $('#nouveaux-inscrits-language').removeAttr('required', '');*/
+    } 
+    else if ($(this).val() == 'n1') {
+      $('#n1-div').show();
+      $('#n2-div').hide();
+      $('#n2-schedule').val('');
+      $('#n3-div').hide();
+      $('#n3-schedule').val('');
+      $('#n0-div').hide();
+      $('#n0-schedule').val('');
+      $('#n0-language').val('');
+      /*$('#nouveaux-inscrits-div').hide();*/
+      $('#n1-schedule').attr('required', '');
+      $('#n1-language').attr('required', '');
+      $('#n0-schedule').removeAttr('required', '');
+      $('#n0-language').removeAttr('required', '');
+      /*$('#nouveaux-inscrits-schedule').removeAttr('required', '');
+      $('#nouveaux-inscrits-language').removeAttr('required', '');*/
+    }
+    else if ($(this).val() == 'n0') {
+      $('#n0-div').show();
+      $('#n0-schedule').attr('required', '');
+      $('#n0-language').attr('required', '');
+      $('#n2-div').hide();
+      $('#n2-schedule').val('');
+      $('#n3-div').hide();
+      $('#n3-schedule').val('');
+      $('#n1-div').hide();
+      $('#n1-schedule').val('');
+      $('#n1-language').val('');
+      /*$('#nouveaux-inscrits-div').hide();*/
+      $('#n1-schedule').removeAttr('required', '');
+      $('#n1-language').removeAttr('required', '');
+      $('#n0-schedule').attr('required', '');
+      $('#n0-language').attr('required', '');
+      /*$('#nouveaux-inscrits-schedule').removeAttr('required', '');
+      $('#nouveaux-inscrits-language').removeAttr('required', '');*/
+    }
+    /*else if ($(this).val() == 'nouveaux-inscrits') {
+      $('#nouveaux-inscrits-div').show();
+      $('#n2-div').hide();
+      $('#n2-schedule').val('');
+      $('#n1-div').hide();
+      $('#n1-schedule').val('');
+      $('#n1-language').val('');
+      $('#n0-div').hide();
+      $('#n0-schedule').val('');
+      $('#n0-language').val('');
+      $('#n3-div').hide();
+      $('#n3-schedule').val('');
+      $('#nouveaux-inscrits-schedule').attr('required', '');
+      $('#nouveaux-inscrits-language').attr('required', '');
+      $('#n1-schedule').removeAttr('required', '');
+      $('#n1-language').removeAttr('required', '');
+      $('#n0-schedule').removeAttr('required', '');
+      $('#n0-language').removeAttr('required', '');
+    } */
+    else {
+      $('#n3-div').hide();
+      $('#n3-schedule').val('');
+      $('#n2-div').hide();
+      $('#n2-schedule').val('');
+      $('#n1-div').hide();
+      $('#n1-schedule').val('');
+      $('#n1-language').val('');
+      $('#n0-div').hide();
+      $('#n0-schedule').val('');
+      $('#n0-language').val('');
+      /*$('#nouveaux-inscrits-div').hide();*/
+      $('#n3-schedule').removeAttr('required', '');
+      $('#n2-schedule').removeAttr('required', '');
+      $('#n1-schedule').removeAttr('required', '');
+      $('#n1-language').removeAttr('required', '');
+      $('#n0-schedule').removeAttr('required', '');
+      $('#n0-language').removeAttr('required', '');
+      /*$('#nouveaux-inscrits-schedule').removeAttr('required', '');
+      $('#nouveaux-inscrits-language').removeAttr('required', '');*/
+    }
+  });
+  $("#sessiontype").trigger("change");
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LcAVWcbAAAAAOa6mv8_vsO0KcPysGmI6fepXnmj"></script>
+<script>
+  var submitted = false;
+  var tokenCreated = false;
+  var formEl = document.getElementById('planning-form');
+
+  formEl.addEventListener("submit", function (event) {
+
+    // Check if the recaptcha exists
+    if (!tokenCreated) {
+
+      // Prevent submission
+      event.preventDefault();
+
+      // Prevent more than one submission
+      if (!submitted) {
+        submitted = true;
+        // needs for recaptacha ready
+        grecaptcha.ready(function() {
+          // do request for recaptcha token
+          // response is promise with passed token
+          grecaptcha.execute('6LcAVWcbAAAAAOa6mv8_vsO0KcPysGmI6fepXnmj', {action: 'create_comment'}).then(function (token) {
+            // add token to form
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "g-recaptcha-response";
+            input.value = token;
+            formEl.appendChild(input);
+
+            // resubmit the form
+            tokenCreated = true;
+            formEl.submit();
+          });
+        });
+      }
+    }
+  });
+</script>

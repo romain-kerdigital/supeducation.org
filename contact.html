@@ -1,0 +1,1084 @@
+---
+title: Contact
+heading: Contact
+subtitle: >-
+  Contactez l'association SupEducation. Aucune demande d'adhésion ne sera prise
+  en compte ici. Pour rejoindre la communauté et démarrer l'apprentissage en
+  français, merci de cliquer sur la page "Apprendre le français".
+sitemap: false
+---
+
+<section class="diagonal alternate">
+  <div class="container">
+	<!-- Init form -->
+	<form action="https://supeducation.org/how-to-join" method="post" id="my-form" class="contact-form"> <!-- Redirect page -->
+		<input type="hidden" name="_hook" value="https://hook.integromat.com/nx8676hrqixtbmplf9jyg6byhze2g5w4" /> <!-- Webhook -->
+		<input type="text" name="_gotcha" style="display: none;"> <!-- Honeypot -->
+
+		  <!-- Gender -->
+    <label for="gender">Gender</label>
+    <div class="select"><select id="gender" name="gender" required>
+      <option selected disabled hidden>Choose here</option>
+      <option value="m">Male (M)</option>
+      <option value="f">Female (F)</option>
+    </select></div> 
+		
+		 <!-- First and last name -->
+		<label for="firstname">First name</label>
+		<input type="text" name="firstname" id="firstname" placeholder="First name" oninput="getfirstname()" required /> 
+		<span id="firstname-toValidateMessage"></span>
+		
+    <label for="lastname">Last name</label>
+		<input type="text" name="lastname" id="lastname" placeholder="Last name" oninput="getlastname()"  required />
+		<span id="lastname-toValidateMessage"></span>
+
+    <input type="hidden" id="outputfirstnametransformed" name="outputfirstnametransformed"> 
+    <input type="hidden" id="outputlastnametransformed" name="outputlastnametransformed"> 
+    <style>
+      .fancy {
+        position: relative;
+        background-color: green;
+        padding: 2rem;
+      }
+
+      .fancy::before {
+        content: "";
+        p {
+          color: black;
+        }
+        position : absolute;
+        z-index  : -1;
+        bottom   : 15px;
+        right    : 5px;
+        width    : 50%;
+        top      : 80%;
+        max-width: 200px;
+
+        box-shadow: 0px 13px 10px black;
+        transform: rotate(4deg);
+      }
+    </style>
+    <div class="fancy" id="emailsupeducationDiv">
+      <p>Your new SupEducation email will be created after this form submission :</p>
+      <ul>
+        <li>Email : <b><span id="outputfirstname"></span>.<span id="outputlastname"></span>@supeducation.org</b></li> (New Google account)
+      </ul>
+      <p>You can define your password at the end of the sign up form.</p>
+    </div>
+    
+    <!-- Date of birth -->
+    <label for="dateofbirth">Date of birth</label>
+    <input type="date" id="dateofbirth" name="dateofbirth" value="1990-01-01" min="1920-01-01" max="2006-12-31" required >
+
+    		<!-- Phone number -->
+    <link rel="stylesheet" href="https://supeducation.org/intl-tel-input/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="https://supeducation.org/intl-tel-input/examples/css/prism.css">
+    <link rel="stylesheet" href="https://supeducation.org/intl-tel-input/examples/css/countrySync.css?1585994360633">
+
+    <style>
+      .iti__flag {background-image: url("https://supeducation.org/intl-tel-input/build/img/flags.png");}
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .iti__flag {background-image: url("https://supeducation.org/intl-tel-input/build/img/flags@2x.png");}
+      }
+    </style>
+	
+    <label for="phone">Phone number</label>
+    <input id="phone" name="phone" type="tel" required>
+    <span id="valid-msg" class="hide">✓ Valid</span>
+    <span id="error-msg" class="hide"></span>
+      
+    <input type="hidden" id="outputcountrycode" placeholder="Country Code" name="outputcountrycode">
+    <input type="hidden" id="outputdialcode" placeholder="Dial Code" name="outputdialcode">
+  <!-- End phone number -->
+		
+	  <label for="email">Email</label>
+		<input type="email" name="email" id="email" placeholder="Email" required /> <!-- oninput="regexEmail()" -->
+		<span id="email-toValidateMessage"></span>
+		
+		<!-- Google Maps -->
+    <label for="location">Address</label>
+    <input name="location" type="text" placeholder="Address" id="location"/>
+      
+    <input name="locality" type="hidden" placeholder="City" id="locality"/>
+    <input name="administrative_area_level_1" type="hidden" placeholder="State/Province" id="administrative_area_level_1"/>
+    <input name="postal_code" type="hidden" placeholder="Zip/Postal code" id="postal_code"/>
+    <input name="country" type="hidden" placeholder="Country" id="country"/>
+    <!-- End Google Maps -->
+		
+	  <label for="countryoforigin">Country of origin</label>
+    <div class="select"><select id="countryoforigin" name="countryoforigin" required>
+      <option selected disabled hidden>Choose here</option>
+      <option value="ad">Andorra</option>
+      <option value="ae">United Arab Emirates</option>
+      <option value="af">Afghanistan</option>
+      <option value="ag">Antigua and Barbuda</option>
+      <option value="ai">Anguilla</option>
+      <option value="al">Albania</option>
+      <option value="am">Armenia</option>
+      <option value="ao">Angola</option>
+      <option value="aq">Antarctica</option>
+      <option value="ar">Argentina</option>
+      <option value="as">American Samoa</option>
+      <option value="at">Austria</option>
+      <option value="au">Australia</option>
+      <option value="aw">Aruba</option>
+      <option value="ax">Åland Islands</option>
+      <option value="az">Azerbaijan</option>
+      <option value="ba">Bosnia and Herzegovina</option>
+      <option value="bb">Barbados</option>
+      <option value="bd">Bangladesh</option>
+      <option value="be">Belgium</option>
+      <option value="bf">Burkina Faso</option>
+      <option value="bg">Bulgaria</option>
+      <option value="bh">Bahrain</option>
+      <option value="bi">Burundi</option>
+      <option value="bj">Benin</option>
+      <option value="bl">Saint Barthélemy</option>
+      <option value="bm">Bermuda</option>
+      <option value="bn">Brunei Darussalam</option>
+      <option value="bo">Bolivia (Plurinational State of)</option>
+      <option value="bq">Bonaire, Sint Eustatius and Saba</option>
+      <option value="br">Brazil</option>
+      <option value="bs">Bahamas</option>
+      <option value="bt">Bhutan</option>
+      <option value="bv">Bouvet Island</option>
+      <option value="bw">Botswana</option>
+      <option value="by">Belarus</option>
+      <option value="bz">Belize</option>
+      <option value="ca">Canada</option>
+      <option value="cc">Cocos (Keeling) Islands</option>
+      <option value="cd">Congo, Democratic Republic of the</option>
+      <option value="cf">Central African Republic</option>
+      <option value="cg">Congo</option>
+      <option value="ch">Switzerland</option>
+      <option value="ci">Côte d'Ivoire</option>
+      <option value="ck">Cook Islands</option>
+      <option value="cl">Chile</option>
+      <option value="cm">Cameroon</option>
+      <option value="cn">China</option>
+      <option value="co">Colombia</option>
+      <option value="cr">Costa Rica</option>
+      <option value="cu">Cuba</option>
+      <option value="cv">Cabo Verde</option>
+      <option value="cw">Curaçao</option>
+      <option value="cx">Christmas Island</option>
+      <option value="cy">Cyprus</option>
+      <option value="cz">Czechia</option>
+      <option value="de">Germany</option>
+      <option value="dj">Djibouti</option>
+      <option value="dk">Denmark</option>
+      <option value="dm">Dominica</option>
+      <option value="do">Dominican Republic</option>
+      <option value="dz">Algeria</option>
+      <option value="ec">Ecuador</option>
+      <option value="ee">Estonia</option>
+      <option value="eg">Egypt</option>
+      <option value="eh">Western Sahara</option>
+      <option value="er">Eritrea</option>
+      <option value="es">Spain</option>
+      <option value="et">Ethiopia</option>
+      <option value="fi">Finland</option>
+      <option value="fj">Fiji</option>
+      <option value="fk">Falkland Islands (Malvinas)</option>
+      <option value="fm">Micronesia (Federated States of)</option>
+      <option value="fo">Faroe Islands</option>
+      <option value="fr">France</option>
+      <option value="ga">Gabon</option>
+      <option value="gb">United Kingdom of Great Britain and Northern Ireland</option>
+      <option value="gd">Grenada</option>
+      <option value="ge">Georgia</option>
+      <option value="gf">French Guiana</option>
+      <option value="gg">Guernsey</option>
+      <option value="gh">Ghana</option>
+      <option value="gi">Gibraltar</option>
+      <option value="gl">Greenland</option>
+      <option value="gm">Gambia</option>
+      <option value="gn">Guinea</option>
+      <option value="gp">Guadeloupe</option>
+      <option value="gq">Equatorial Guinea</option>
+      <option value="gr">Greece</option>
+      <option value="gs">South Georgia and the South Sandwich Islands</option>
+      <option value="gt">Guatemala</option>
+      <option value="gu">Guam</option>
+      <option value="gw">Guinea-Bissau</option>
+      <option value="gy">Guyana</option>
+      <option value="hk">Hong Kong</option>
+      <option value="hm">Heard Island and McDonald Islands</option>
+      <option value="hn">Honduras</option>
+      <option value="hr">Croatia</option>
+      <option value="ht">Haiti</option>
+      <option value="hu">Hungary</option>
+      <option value="id">Indonesia</option>
+      <option value="ie">Ireland</option>
+      <option value="il">Israel</option>
+      <option value="im">Isle of Man</option>
+      <option value="in">India</option>
+      <option value="io">British Indian Ocean Territory</option>
+      <option value="iq">Iraq</option>
+      <option value="ir">Iran (Islamic Republic of)</option>
+      <option value="is">Iceland</option>
+      <option value="it">Italy</option>
+      <option value="je">Jersey</option>
+      <option value="jm">Jamaica</option>
+      <option value="jo">Jordan</option>
+      <option value="jp">Japan</option>
+      <option value="ke">Kenya</option>
+      <option value="kg">Kyrgyzstan</option>
+      <option value="kh">Cambodia</option>
+      <option value="ki">Kiribati</option>
+      <option value="km">Comoros</option>
+      <option value="kn">Saint Kitts and Nevis</option>
+      <option value="kp">Korea (Democratic People's Republic of)</option>
+      <option value="kr">Korea, Republic of</option>
+      <option value="kw">Kuwait</option>
+      <option value="ky">Cayman Islands</option>
+      <option value="kz">Kazakhstan</option>
+      <option value="la">Lao People's Democratic Republic</option>
+      <option value="lb">Lebanon</option>
+      <option value="lc">Saint Lucia</option>
+      <option value="li">Liechtenstein</option>
+      <option value="lk">Sri Lanka</option>
+      <option value="lr">Liberia</option>
+      <option value="ls">Lesotho</option>
+      <option value="lt">Lithuania</option>
+      <option value="lu">Luxembourg</option>
+      <option value="lv">Latvia</option>
+      <option value="ly">Libya</option>
+      <option value="ma">Morocco</option>
+      <option value="mc">Monaco</option>
+      <option value="md">Moldova, Republic of</option>
+      <option value="me">Montenegro</option>
+      <option value="mf">Saint Martin (French part)</option>
+      <option value="mg">Madagascar</option>
+      <option value="mh">Marshall Islands</option>
+      <option value="mk">North Macedonia</option>
+      <option value="ml">Mali</option>
+      <option value="mm">Myanmar</option>
+      <option value="mn">Mongolia</option>
+      <option value="mo">Macao</option>
+      <option value="mp">Northern Mariana Islands</option>
+      <option value="mq">Martinique</option>
+      <option value="mr">Mauritania</option>
+      <option value="ms">Montserrat</option>
+      <option value="mt">Malta</option>
+      <option value="mu">Mauritius</option>
+      <option value="mv">Maldives</option>
+      <option value="mw">Malawi</option>
+      <option value="mx">Mexico</option>
+      <option value="my">Malaysia</option>
+      <option value="mz">Mozambique</option>
+      <option value="na">Namibia</option>
+      <option value="nc">New Caledonia</option>
+      <option value="ne">Niger</option>
+      <option value="nf">Norfolk Island</option>
+      <option value="ng">Nigeria</option>
+      <option value="ni">Nicaragua</option>
+      <option value="nl">Netherlands</option>
+      <option value="no">Norway</option>
+      <option value="np">Nepal</option>
+      <option value="nr">Nauru</option>
+      <option value="nu">Niue</option>
+      <option value="nz">New Zealand</option>
+      <option value="om">Oman</option>
+      <option value="pa">Panama</option>
+      <option value="pe">Peru</option>
+      <option value="pf">French Polynesia</option>
+      <option value="pg">Papua New Guinea</option>
+      <option value="ph">Philippines</option>
+      <option value="pk">Pakistan</option>
+      <option value="pl">Poland</option>
+      <option value="pm">Saint Pierre and Miquelon</option>
+      <option value="pn">Pitcairn</option>
+      <option value="pr">Puerto Rico</option>
+      <option value="ps">Palestine, State of</option>
+      <option value="pt">Portugal</option>
+      <option value="pw">Palau</option>
+      <option value="py">Paraguay</option>
+      <option value="qa">Qatar</option>
+      <option value="re">Réunion</option>
+      <option value="ro">Romania</option>
+      <option value="rs">Serbia</option>
+      <option value="ru">Russian Federation</option>
+      <option value="rw">Rwanda</option>
+      <option value="sa">Saudi Arabia</option>
+      <option value="sb">Solomon Islands</option>
+      <option value="sc">Seychelles</option>
+      <option value="sd">Sudan</option>
+      <option value="se">Sweden</option>
+      <option value="sg">Singapore</option>
+      <option value="sh">Saint Helena, Ascension and Tristan da Cunha</option>
+      <option value="si">Slovenia</option>
+      <option value="sj">Svalbard and Jan Mayen</option>
+      <option value="sk">Slovakia</option>
+      <option value="sl">Sierra Leone</option>
+      <option value="sm">San Marino</option>
+      <option value="sn">Senegal</option>
+      <option value="so">Somalia</option>
+      <option value="sr">Suriname</option>
+      <option value="ss">South Sudan</option>
+      <option value="st">Sao Tome and Principe</option>
+      <option value="sv">El Salvador</option>
+      <option value="sx">Sint Maarten (Dutch part)</option>
+      <option value="sy">Syrian Arab Republic</option>
+      <option value="sz">Eswatini</option>
+      <option value="tc">Turks and Caicos Islands</option>
+      <option value="td">Chad</option>
+      <option value="tf">French Southern Territories</option>
+      <option value="tg">Togo</option>
+      <option value="th">Thailand</option>
+      <option value="tj">Tajikistan</option>
+      <option value="tk">Tokelau</option>
+      <option value="tl">Timor-Leste</option>
+      <option value="tm">Turkmenistan</option>
+      <option value="tn">Tunisia</option>
+      <option value="to">Tonga</option>
+      <option value="tr">Turkey</option>
+      <option value="tt">Trinidad and Tobago</option>
+      <option value="tv">Tuvalu</option>
+      <option value="tw">Taiwan, Province of China</option>
+      <option value="tz">Tanzania, United Republic of</option>
+      <option value="ua">Ukraine</option>
+      <option value="ug">Uganda</option>
+      <option value="um">United States Minor Outlying Islands</option>
+      <option value="us">United States of America</option>
+      <option value="uy">Uruguay</option>
+      <option value="uz">Uzbekistan</option>
+      <option value="va">Holy See</option>
+      <option value="vc">Saint Vincent and the Grenadines</option>
+      <option value="ve">Venezuela (Bolivarian Republic of)</option>
+      <option value="vg">Virgin Islands (British)</option>
+      <option value="vi">Virgin Islands (U.S.)</option>
+      <option value="vn">Viet Nam</option>
+      <option value="vu">Vanuatu</option>
+      <option value="wf">Wallis and Futuna</option>
+      <option value="ws">Samoa</option>
+      <option value="ye">Yemen</option>
+      <option value="yt">Mayotte</option>
+      <option value="za">South Africa</option>
+      <option value="zm">Zambia</option>
+      <option value="zw">Zimbabwe</option>
+    </select></div>
+
+<!-- How did you hear about SupEducation ? -->
+  <label for="howdidyouhearaboutsupeducation">How did you hear about SupEducation?</label>
+	
+  <div class="select"><select name="howdidyouhearaboutsupeducation" id="howdidyouhearaboutsupeducation" required>
+    <option selected disabled hidden>Choose here</option>
+    <option value="frommember">From a member of the community</option>
+    <option value="fromsocialmedia">From social media </option>
+    <option value="fromvolunteerplatform">From a volunteer platform</option>
+    <option value="fromwebsearch">I found it myself through a web search</option>
+    <option value="fromother">Other</option>
+  </select></div>
+  
+    <div id="frommember-div">
+      <label for="frommember-email">Email of the member who invited you to our community</label>
+	    <!--<input type="email" name="frommember-email" id="frommember-email" pattern="^[a-zA-Z0-9_.+-]+@supeducation\.org$" placeholder="......@supeducation.org" oninvalid="this.setCustomValidity('This is not an email address')" onvalid="this.setCustomValidity('')">-->
+	     <input type="email" name="frommember" id="frommember" placeholder="firstname.lastname@supeducation.org">
+      <span id="frommember-toValidateMessage"></span>
+    </div>
+    
+    <!-- ^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(domain|domain2)\.com$ -->
+    
+    <div id="fromsocialmedia-div">
+      <label for="fromsocialmedia">URL of the group or page where you found SupEducation (https://......)</label>
+	    <input type="text" name="fromsocialmedia" id="fromsocialmedia" placeholder="https://......">
+	    <span id="fromsocialmedia-toValidateMessage"></span>
+    </div>
+    
+    <div id="fromvolunteerplatform-div">
+      <label for="fromvolunteerplatform">URL of the volunteer platform</label>
+	    <input type="text" name="fromvolunteerplatform" id="fromvolunteerplatform" placeholder="https://......">
+	    <span id="fromvolunteerplatform-toValidateMessage"></span>
+    </div>
+    
+    <div id="fromwebsearch-div">
+      <label for="fromwebsearch">Which keywords did you type to find SupEducation ? (keyword1, keyword2, keyword3, ...)</label>
+	    <input type="text" name="fromwebsearch" id="fromwebsearch" placeholder="keyword1, keyword2, keyword3, ...">
+	    <span id="fromwebsearch-toValidateMessage"></span>
+    </div>
+	
+	  <div id="fromother-div">
+      <label for="fromother">Explain here how you heard about SupEducation (In French, English or Arabic)</label>
+	    <textarea name="fromother" id="fromother" placeholder="Explain here how you heard about SupEducation (In French, English or Arabic)"></textarea>
+	    <span id="fromother-toValidateMessage"></span>
+    </div>
+    
+    <!-- End How did you hear about SupEducation ? -->		
+
+  
+  <!-- Why join community -->
+    <label for="whyjoincommunity">Why do you want to join our community?</label>
+    <div class="select"><select name="whyjoincommunity" id="whyjoincommunity" required>
+      <option selected disabled hidden>Choose here</option>
+      <option value="only-learn">I only want to learn or practice French</option>
+      <option value="learn-volunteer">I want to learn or practice French but I also want to help as a volunteer</option>
+      <option value="only-volunteer">I don't need to practice French, I am a native speaker and I only want to help as a volunteer</option>
+    </select></div>
+    
+    <div id="only-learn-div" class="fancy">
+      <p>If you only want to learn or practice French, your level will be automatically be assigned to N2.</p>
+      <p>The N2 level will give you access to the beginner level and intermediate level. The N3 level is reserved to students who also volunteer in the community.</p>
+      <p>You will have access to Workplace to contact volunteers in groups and our Telegram support group to help you log in.</p>
+    </div>
+    
+    <div id="learn-volunteer-div" class="fancy">
+      <p>If you want to learn or practice French and you want to help in the community, your level will be automatically be assigned to N3.</p>
+      <p>The N3 level will give you access to all the French Corners (Beginner, Intermediate and Advanced). You will have 1 month to discover our nonprofit organization and the different teams, contact the managers and choose your main team.</p>
+      <p>You will have access to Workplace to contact students in groups and Google Chat to contact the other volunteers.</p>
+    </div>
+    
+    <div id="only-volunteer-div" class="fancy">
+      <p>If you are a French native speaker, you will be contacted by our welcome team to have a phone call to help you find a suitable team as soon as possible.</p>
+      <p>The Native Speaker level will give you access to all the French Corners (Beginner, Intermediate and Advanced). You will have 1 month to discover our nonprofit organization and the different teams, contact the managers and choose your main team.</p>
+      <p>You will have access to Workplace to contact students in groups and Google Chat to contact the other volunteers.</p>
+    </div>
+    
+  <!-- End Why join community -->
+  
+  <!-- Password -->
+    <label for="password">Password</label>
+    <input class="key" name="password" type="text" id="password" autocomplete="off" required>
+    <span id="password-toValidateMessage"></span>
+
+    <label for="passwordconfirm">Repeat Password</label>
+    <input class="key" name="passwordconfirm" type="text" autocomplete="off" id="passwordconfirm" required>
+    <span id="passwordconfirm-toValidateMessage"></span>
+    
+    <div id="afterpassword" class="fancy">
+      <p>Please do not forget this password.</p>
+      <p>Your new SupEducation email will be created after this form submission : <b><span id="outputfirstname2"></span>.<span id="outputlastname2"></span>@supeducation.org</b>.</p>
+      <p>You can add a new Google account on Gmail with this email and this password. You can also log in via SSO on Workplace, our main communication app with this email and password.</p>
+    </div>
+ 
+    <div class="checkbox">
+      <label for="terms" class="container">I have read and accept the <a href="https://supeducation.org/terms" target="_blank">terms and conditions</a> and the <a href="https://supeducation.org/privacy-policy" target="_blank">privacy policy</a> of the SupEducation association
+      <input type="checkbox" name="terms" id="terms">
+      <span class="checkmark"></span>
+      </label>
+    </div>
+
+    <div class="checkbox">
+      <label for="wait" class="container"> I will not sign up twice. I will check the email in my spam folder and I will contact SupEducation on <a href="https://t.me/supeducation" target="_blank">Telegram</a> if I need assistance.
+      <input type="checkbox" name="wait" id="wait">
+      <span class="checkmark"></span>
+      </label>
+    </div>
+
+		<input type="submit" value="Submit" />
+	  </form>
+	</div>
+</section>
+
+<div class="elfsight-app-3cc2e54b-02e7-4f42-bf5b-7c45a10cddb5"></div>
+
+
+<!-- Load Facebook SDK for JavaScript 
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v9.0'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your Chat Plugin code 
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="1401681379866803"
+  theme_color="#0A7CFF">
+      </div>--> 
+      
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script>
+      var password = document.getElementById("password");
+      var passwordconfirm = document.getElementById("passwordconfirm");
+
+      function validatePassword(){
+        if(password.value != passwordconfirm.value) {
+          passwordconfirm.setCustomValidity("Passwords Don't Match");
+        } 
+        else {
+          passwordconfirm.setCustomValidity('');
+        }
+      }
+
+      password.onchange = validatePassword;
+      passwordconfirm.onchange = validatePassword;
+    </script>
+    
+    <!-- End Password -->
+      
+<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaHf2hpV98QZOXXIw-u5_XnshhVIF4mek&libraries=places&callback=initMap&channel=GMPSB_addressselection_v1_cAB" async defer></script>
+    
+  
+<!-- Google ReCaptcha -->
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LcAVWcbAAAAAOa6mv8_vsO0KcPysGmI6fepXnmj"></script>
+<script>
+  var submitted = false;
+  var tokenCreated = false;
+  var formEl = document.getElementById('my-form');
+
+  formEl.addEventListener("submit", function (event) {
+
+    // Check if the recaptcha exists
+    if (!tokenCreated) {
+
+      // Prevent submission
+      event.preventDefault();
+
+      // Prevent more than one submission
+      if (!submitted) {
+        submitted = true;
+        // needs for recaptacha ready
+        grecaptcha.ready(function() {
+          // do request for recaptcha token
+          // response is promise with passed token
+          grecaptcha.execute('6LcAVWcbAAAAAOa6mv8_vsO0KcPysGmI6fepXnmj', {action: 'create_comment'}).then(function (token) {
+            // add token to form
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "g-recaptcha-response";
+            input.value = token;
+            formEl.appendChild(input);
+
+            // resubmit the form
+            tokenCreated = true;
+            formEl.submit();
+          });
+        });
+      }
+    }
+  });
+</script>
+
+<!-- Fin Google ReCaptcha -->  
+  
+
+    <script>
+      function ucfirst(str) {
+        var firstLetter = str.substr(0, 1);
+        return firstLetter.toUpperCase() + str.substr(1);
+      }
+      
+      function getfirstname(){
+      var x = document.getElementById('firstname').value;
+      document.getElementById('outputfirstname').innerHTML = x.replace(' ','-').toLowerCase();
+      document.getElementById('outputfirstname2').innerHTML = x.replace(' ','-').toLowerCase();
+      document.getElementById('outputfirstnametransformed').innerHTML = ucfirst(x);
+      }
+      function getlastname(){
+      var y = document.getElementById('lastname').value;
+      document.getElementById('outputlastname').innerHTML = y.replace(' ','-').toLowerCase(); 
+      document.getElementById('outputlastname2').innerHTML = y.replace(' ','-').toLowerCase(); 
+      document.getElementById('outputlastnametransformed').innerHTML = y.toUpperCase();
+      }
+    </script>
+      
+      
+      
+		<script>
+		/*
+		// Validate Email
+    function regexEmail(email) {
+      const regexEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return regexEmail.test(email);
+        }
+
+    function validateEmail() {
+      const $result_email = $("#result-email");
+      const email = $("#email").val();
+      $result_email.text("");
+
+      if (regexEmail(email)) {
+        $result_email.text(email + " is valid");
+        $result_email.css("background-color", "green");
+      } else {
+        $result_email.text(email + " is not valid");
+        $result_email.css("background-color", "red");
+      }
+      return false;
+    }
+    
+    $("#email").on("input", validateEmail);
+    
+      */
+      
+      // Validate Email
+    
+    const email_toValidateMessage = $("#email-toValidateMessage");
+    const email_toValidate = $("#email");
+    const email_regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+    function emailValidate() {
+      email_toValidateMessage.text("");
+      if (email_regex.test(email_toValidate.val())) {
+        email_toValidateMessage.text(email_toValidate.val() + " is valid");
+        email_toValidateMessage.css("background-color", "green");
+      } else {
+        email_toValidateMessage.text(email_toValidate.val() + " is not valid");
+        email_toValidateMessage.css("background-color", "red");
+      }
+      return false;
+    }
+    
+    email_toValidate.on("input", emailValidate);
+    </script>
+    <script>    //Validate name
+    
+    const firstname_toValidateMessage = $("#firstname-toValidateMessage");
+    const firstname_toValidate = $("#firstname");
+    const firstname_regex = /^(?:(?!.*[ ]{2})(?!(?:.*[']){2})(?!(?:.*[-]){2})(?:[a-zA-Z0-9 \p{L}'-]{2,30}$))$/; // /^[a-zA-Z\- ]{2,20}$/;
+    
+    function firstnameValidate() {
+      firstname_toValidateMessage.text("");
+      if (firstname_regex.test(firstname_toValidate.val())) {
+        firstname_toValidateMessage.text(firstname_toValidate.val() + " is valid");
+        firstname_toValidateMessage.css("background-color", "green");
+      } else {
+        firstname_toValidateMessage.text(firstname_toValidate.val() + " is not valid. Please type your first name.");
+        firstname_toValidateMessage.css("background-color", "red");
+      }
+      return false;
+    }
+    
+    
+    firstname_toValidate.on("input", firstnameValidate);
+    
+     //Validate Last name
+    
+  const lastname_toValidateMessage = $("#lastname-toValidateMessage");
+  const lastname_toValidate = $("#lastname");
+  const lastname_regex = /^(?:(?!.*[ ]{2})(?!(?:.*[']){2})(?!(?:.*[-]){2})(?:[a-zA-Z0-9 \p{L}'-]{2,30}$))$/; // /^[a-zA-Z\- ]{2,20}$/;
+  
+  function lastnameValidate() {
+    lastname_toValidateMessage.text("");
+    if (lastname_regex.test(lastname_toValidate.val())) {
+      lastname_toValidateMessage.text(lastname_toValidate.val() + " is valid");
+      lastname_toValidateMessage.css("background-color", "green");
+    } else {
+      lastname_toValidateMessage.text(lastname_toValidate.val() + " is not valid. Please type your last name.");
+      lastname_toValidateMessage.css("background-color", "red");
+    }
+    return false;
+  }
+  
+  
+  lastname_toValidate.on("input", lastnameValidate);
+    
+     //Validate URL Social Media
+    
+  const fromsocialmedia_toValidateMessage = $("#fromsocialmedia-toValidateMessage");
+  const fromsocialmedia_toValidate = $("#fromsocialmedia");
+  const fromsocialmedia_regex = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/; // /^[a-zA-Z\- ]{2,20}$/;
+  
+  function fromsocialmediaValidate() {
+    fromsocialmedia_toValidateMessage.text("");
+    if (fromsocialmedia_regex.test(fromsocialmedia_toValidate.val())) {
+      fromsocialmedia_toValidateMessage.text(fromsocialmedia_toValidate.val() + " is valid");
+      fromsocialmedia_toValidateMessage.css("background-color", "green");
+    } else {
+      fromsocialmedia_toValidateMessage.text(fromsocialmedia_toValidate.val() + " is not valid. Please type a valid URL address : https://....");
+      fromsocialmedia_toValidateMessage.css("background-color", "red");
+    }
+    return false;
+  }
+  
+  
+  fromsocialmedia_toValidate.on("input", fromsocialmediaValidate);
+    
+
+  //Validate URL Volunteer Platform
+    
+const fromvolunteerplatform_toValidateMessage = $("#fromvolunteerplatform-toValidateMessage");
+const fromvolunteerplatform_toValidate = $("#fromvolunteerplatform");
+const fromvolunteerplatform_regex = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/; // /^[a-zA-Z\- ]{2,20}$/;
+
+function fromvolunteerplatformValidate() {
+  fromvolunteerplatform_toValidateMessage.text("");
+  if (fromvolunteerplatform_regex.test(fromvolunteerplatform_toValidate.val())) {
+    fromvolunteerplatform_toValidateMessage.text(fromvolunteerplatform_toValidate.val() + " is valid");
+    fromvolunteerplatform_toValidateMessage.css("background-color", "green");
+  } else {
+    fromvolunteerplatform_toValidateMessage.text(fromvolunteerplatform_toValidate.val() + " is not valid. Please type a valid URL address : https://....");
+    fromvolunteerplatform_toValidateMessage.css("background-color", "red");
+  }
+  return false;
+}
+  
+  
+  fromvolunteerplatform_toValidate.on("input", fromvolunteerplatformValidate);    
+
+//Validate Keywords Web Search
+
+const fromwebsearch_toValidateMessage = $("#fromwebsearch-toValidateMessage");
+const fromwebsearch_toValidate = $("#fromwebsearch");
+const fromwebsearch_regex = /^[A-Za-z, \-]{20,}$/; // /^[a-zA-Z\- ]{2,20}$/;
+
+function fromwebsearchValidate() {
+fromwebsearch_toValidateMessage.text("");
+if (fromwebsearch_regex.test(fromwebsearch_toValidate.val())) {
+fromwebsearch_toValidateMessage.text(fromwebsearch_toValidate.val() + " is valid.");
+fromwebsearch_toValidateMessage.css("background-color", "green");
+} else {
+fromwebsearch_toValidateMessage.text(fromwebsearch_toValidate.val() + " is too short (20 letters minimum). Please provide more keywords or verify you only used letters and commas.");
+fromwebsearch_toValidateMessage.css("background-color", "red");
+}
+return false;
+}
+
+
+fromwebsearch_toValidate.on("input", fromwebsearchValidate);
+
+//Validate Keywords Web Search
+
+const frommember_toValidateMessage = $("#frommember-toValidateMessage");
+const frommember_toValidate = $("#frommember");
+const frommember_regex = /^[a-z]{2,}\.[a-z]{2,}@supeducation\.org$/; // /^[a-zA-Z\- ]{2,20}$/;
+
+function frommemberValidate() {
+frommember_toValidateMessage.text("");
+if (frommember_regex.test(frommember_toValidate.val())) {
+frommember_toValidateMessage.text(frommember_toValidate.val() + " is valid");
+frommember_toValidateMessage.css("background-color", "green");
+} else {
+frommember_toValidateMessage.text(frommember_toValidate.val() + " is not valid. The format is firstname.lastname@supeducation.org");
+frommember_toValidateMessage.css("background-color", "red");
+}
+return false;
+}
+
+
+frommember_toValidate.on("input", frommemberValidate);
+
+// Validate password
+const password_toValidateMessage = $("#password-toValidateMessage");
+const password_toValidate = $("#password");
+const password_regex = /^(.*){8,50}$/; // /^[a-zA-Z\- ]{2,20}$/;
+
+function passwordValidate() {
+password_toValidateMessage.text("");
+if (password_regex.test(password_toValidate.val())) {
+password_toValidateMessage.text("The password is valid");
+password_toValidateMessage.css("background-color", "green");
+} else {
+password_toValidateMessage.text("The password is not valid. The password must contain at least 8 characters");
+password_toValidateMessage.css("background-color", "red");
+}
+return false;
+}
+
+
+password_toValidate.on("input", passwordValidate);
+
+// Validate password confirmation
+const passwordconfirm_toValidateMessage = $("#passwordconfirm-toValidateMessage");
+const passwordconfirm_toValidate = $("#passwordconfirm");
+
+function passwordconfirmValidate() {
+passwordconfirm_toValidateMessage.text("");
+if (passwordconfirm_toValidate.val() = password_toValidate.val()) {
+passwordconfirm_toValidateMessage.text("The password is valid");
+passwordconfirm_toValidateMessage.css("background-color", "green");
+} else {
+passwordconfirm_toValidateMessage.text("The password is not valid. The passwords must be identical.");
+passwordconfirm_toValidateMessage.css("background-color", "red");
+}
+return false;
+}
+
+
+passwordconfirm_toValidate.on("input", passwordconfirmValidate);
+
+		</script>
+  
+  		<!-- Google Maps -->
+    <script>
+    "use strict";
+
+    function initMap() {
+      const componentForm = [
+        'location',
+        'locality',
+        'administrative_area_level_1',
+        'country',
+        'postal_code',
+      ];
+      
+      
+      const autocompleteInput = document.getElementById('location');
+      const autocomplete = new google.maps.places.Autocomplete(autocompleteInput);
+      autocomplete.addListener('place_changed', function () {
+        const place = autocomplete.getPlace();
+        if (!place.geometry) {
+          // User entered the name of a Place that was not suggested and
+          // pressed the Enter key, or the Place Details request failed.
+          window.alert('No details available for input: \'' + place.name + '\'');
+          return;
+        }
+        fillInAddress(place);
+      });
+
+      function fillInAddress(place) {  // optional parameter
+        const addressNameFormat = {
+          'street_number': 'short_name',
+          'route': 'long_name',
+          'locality': 'long_name',
+          'administrative_area_level_1': 'short_name',
+          'country': 'short_name',
+          'postal_code': 'short_name',
+        };
+        const getAddressComp = function (type) {
+          for (const component of place.address_components) {
+            if (component.types[0] === type) {
+              return component[addressNameFormat[type]];
+            }
+          }
+          return '';
+        };
+        document.getElementById('location').value = getAddressComp('street_number') + ', '
+                  + getAddressComp('route') + ', ' + getAddressComp('locality') + ', ' + getAddressComp('postal_code') + ', ' + getAddressComp('country');
+        for (const component of componentForm) {
+          // Location field is handled separately above as it has different logic.
+          if (component !== 'location') {
+            document.getElementById(component).value = getAddressComp(component);
+          }
+        }
+      }
+    }
+    </script>
+    
+  
+  <!-- Phone number -->
+<script src="https://supeducation.org/intl-tel-input/build/js/intlTelInput.js"></script>
+  <script src="https://supeducation.org/intl-tel-input/examples/js/prism.js"></script>
+  
+
+
+		<script>
+    var input = document.querySelector("#phone"),
+    errorMsg = document.querySelector("#error-msg"),
+    validMsg = document.querySelector("#valid-msg");
+    var valid_msg = document.getElementById("valid-msg");
+    var phone = document.getElementById("phone");
+
+    // here, the index maps to the error code returned from getValidationError - see readme
+    var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+
+    // initialise plugin
+    var iti = window.intlTelInput(input, {
+      initialCountry: "fr",
+      placeholderNumberType: "MOBILE",
+      separateDialCode: true,
+      utilsScript: "https://supeducation.org/intl-tel-input/build/js/utils.js"
+    });
+
+    var reset = function() {
+      input.classList.remove("error");
+      errorMsg.innerHTML = "";
+      errorMsg.classList.add("hide");
+      validMsg.classList.add("hide");
+    };
+
+    // on blur: validate
+    input.addEventListener('blur', function() {
+      reset();
+      if (input.value.trim()) {
+        if (iti.isValidNumber()) {
+          validMsg.classList.remove("hide");
+          phone.setCustomValidity('');
+        } 
+        else {
+          input.classList.add("error");
+          var errorCode = iti.getValidationError();
+          errorMsg.innerHTML = errorMap[errorCode];
+          errorMsg.classList.remove("hide");
+          phone.setCustomValidity("Phone incorrect");
+        }
+      }
+    });
+
+    // on keyup / change flag: reset
+    input.addEventListener('change', reset);
+    input.addEventListener('keyup', reset);
+    
+    
+    // get the country data from the plugin
+    var countryData = window.intlTelInputGlobals.getCountryData(),
+    input = document.querySelector("#phone");
+
+    // set it's initial value
+    document.getElementById('outputcountrycode').value = iti.getSelectedCountryData().iso2;
+    document.getElementById('outputdialcode').value = iti.getSelectedCountryData().dialCode;
+
+    // listen to the telephone input for changes
+    input.addEventListener('countrychange', function(e) {
+      document.getElementById('outputcountrycode').value = iti.getSelectedCountryData().iso2;
+      document.getElementById('outputdialcode').value = iti.getSelectedCountryData().dialCode;
+    });
+  </script>
+  <!-- End Phone number -->
+  
+  
+<script>
+  
+//  $("#seeAnotherField").change(function() {
+//    if ($(this).val() == "yes") {
+//    $('#otherFieldDiv').show();
+//      $('#otherField').attr('required', '');
+//    $('#otherField').attr('data-error', 'This field is required.');
+//  } 
+//  else {
+//    $('#otherFieldDiv').hide();
+//    $('#otherField').removeAttr('required');
+//    $('#otherField').removeAttr('data-error');
+//  }
+//});
+//$("#seeAnotherField").trigger("change");
+
+
+// After Last Name
+  $("#lastname").change(function() {
+    if ($(this).val().length > 1) {
+      $('#emailsupeducationDiv').show();
+    } 
+    else {
+      $('#emailsupeducationDiv').hide();
+    }
+  });
+  $("#lastname").trigger("change");
+
+// After how did you hear about SupEducation (frommember)
+  $("#howdidyouhearaboutsupeducation").change(function() {
+    if ($(this).val() == 'frommember') {
+      $('#frommember-div').show();
+      $('#frommember-email').attr('required', '');
+      $('#frommember-email').attr('data-error', 'Please note the email of the member using the format firstname.lastname@supeducation.org.');
+      $('#fromsocialmedia-div').hide();
+      $('#fromvolunteerplatform-div').hide();
+      $('#fromwebsearch-div').hide();
+      $('#fromother-div').hide();
+    } 
+    else if ($(this).val() == 'fromsocialmedia') {
+      $('#fromsocialmedia-div').show();
+      $('#frommember-div').hide();
+      $('#fromvolunteerplatform-div').hide();
+      $('#fromwebsearch-div').hide();
+      $('#fromother-div').hide();
+    } 
+    else if ($(this).val() == 'fromvolunteerplatform') {
+      $('#fromvolunteerplatform-div').show();
+      $('#frommember-div').hide();
+      $('#fromsocialmedia-div').hide();
+      $('#fromwebsearch-div').hide();
+      $('#fromother-div').hide();
+    }
+    else if ($(this).val() == 'fromwebsearch') {
+      $('#fromwebsearch-div').show();
+      $('#frommember-div').hide();
+      $('#fromsocialmedia-div').hide();
+      $('#fromvolunteerplatform-div').hide();
+      $('#fromother-div').hide();
+    } 
+    else if ($(this).val() == 'fromother') {
+      $('#fromother-div').show();
+      $('#frommember-div').hide();
+      $('#fromsocialmedia-div').hide();
+      $('#fromvolunteerplatform-div').hide();
+      $('#fromwebsearch-div').hide();
+    } 
+    else {
+      $('#frommember-div').hide();
+      $('#fromsocialmedia-div').hide();
+      $('#fromvolunteerplatform-div').hide();
+      $('#fromwebsearch-div').hide();
+      $('#fromother-div').hide();
+      $('#frommember-email').removeAttr('required', '');
+      $('#frommember-email').removeAttr('data-error', 'This field is required.');
+    }
+  });
+  $("#howdidyouhearaboutsupeducation").trigger("change");
+
+// After Why join community (only-learn)
+  $("#whyjoincommunity").change(function() {
+    if ($(this).val() == 'only-learn') {
+      $('#only-learn-div').show();
+    } 
+    else {
+      $('#only-learn-div').hide();
+    }
+  });
+  $("#whyjoincommunity").trigger("change");
+  
+  
+  
+// After Why join community (only-volunteer)
+  $("#whyjoincommunity").change(function() {
+    if ($(this).val() == 'only-volunteer') {
+      $('#only-volunteer-div').show();
+    } 
+    else {
+      $('#only-volunteer-div').hide();
+    }
+  });
+  $("#whyjoincommunity").trigger("change");  
+
+
+
+// After Why join community (learn-volunteer)
+  $("#whyjoincommunity").change(function() {
+    if ($(this).val() == 'learn-volunteer') {
+      $('#learn-volunteer-div').show();
+    } 
+    else {
+      $('#learn-volunteer-div').hide();
+    }
+  });
+  $("#whyjoincommunity").trigger("change");  
+
+
+
+// After Password
+  $("#passwordconfirm").change(function() {
+    if ($(this).val().length > 1) {
+      $('#afterpassword').show();
+    } 
+    else {
+      $('#afterpassword').hide();
+    }
+  });
+  $("#passwordconfirm").trigger("change");
+
+
+
+  $("#seeAnotherFieldGroup").change(function() {
+    if ($(this).val() == "yes") {
+      $('#otherFieldGroupDiv').show();
+      $('#otherField1').attr('required', '');
+      $('#otherField1').attr('data-error', 'This field is required.');
+      $('#otherField2').attr('required', '');
+      $('#otherField2').attr('data-error', 'This field is required.');
+    } 
+    else {
+      $('#otherFieldGroupDiv').hide();
+      $('#otherField1').removeAttr('required');
+      $('#otherField1').removeAttr('data-error');
+      $('#otherField2').removeAttr('required');
+      $('#otherField2').removeAttr('data-error');
+    }
+  });
+$("#seeAnotherFieldGroup").trigger("change");
+</script>

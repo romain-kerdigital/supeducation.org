@@ -1,0 +1,58 @@
+// staff.scss
+.staff {
+	padding: 0;
+	list-style: none;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 1%;
+	
+	a {
+	  	@media #{$desktop} {
+	    flex: 1 1 22%;
+	    flex-grow: unset;  
+	  }
+	  flex: 1 1 100%;
+	  padding: 2% 1%;
+	  display: flex;
+	  flex-direction: column;
+	.staff-card {
+	  .staff-card-image {
+		flex: 1;
+			img {
+				width: 50%;
+				border-radius: 5px;
+			}
+	  }
+
+	  .staff-card-name {
+		flex: 1;
+		  p {
+		    text-decoration: none;
+	    }
+	  }
+
+  	.staff-card-position {
+  		flex: 1;
+  		p {
+  	    text-decoration: none;
+  		}
+  	}
+    .staff-card-blurb {
+      flex: 1;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;  /* Number of lines displayed before it truncate */
+      overflow: hidden;
+      text-decoration: none;
+    }
+  }
+	}
+  .staff-card::after {
+      content: "";
+      flex: auto;
+      }
+	  
+}

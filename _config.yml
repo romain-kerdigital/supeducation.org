@@ -1,0 +1,105 @@
+title: SupEducation
+url: "https://supeducation.org"
+enforce_ssl: "https://supeducation.org"
+baseurl:
+google_analytics_key: "G-2WPJTWQ6SZ"
+google_maps_javascript_api_key:
+disqus_shortname:
+
+# Default description in social shares for the jekyll-seo-tag gem
+description: Learn French online for FREE
+
+# Author details for the jekyll-seo-tag gem
+author:
+  name:
+  email:
+  twitter: # twitter username without the @ symbol
+
+# Social details for the jekyll-seo-tag gem
+social:
+  name: 
+  links:
+    - 
+
+timezone: Etc/UTC
+
+collections:
+  missions:
+    output: true
+  benevoles:
+    output: true
+
+permalink: /:title/
+
+jekyll-archives:
+  enabled:
+    - "categories"
+
+plugins:
+  - "jekyll-feed"
+  - "jekyll-seo-tag"
+  - "jekyll-paginate"
+  - "jekyll-archives"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENCE
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      sitemap: false
+      _options:
+        content:
+          width: 960
+          height: 2000
+  -
+    scope:
+      path: ""
+      type: "missions"
+    values:
+      layout: "mission"
+      sitemap: false
+      _options:
+        image_path:
+          width: 600
+          height: 600
+  -
+    scope:
+      path: ""
+      type: "benevoles"
+    values:
+      layout: "benevole"
+      sitemap: false
+      _options:
+        image_path:
+          width: 600
+          height: 600
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: "index.html"
+      type: "pages"
+    values:
+      layout: "default"
+
+# -----------
+# CloudCannon
+
+social_icons:
+  - Facebook
+  - Instagram
+  - LinkedIn
+  - Pinterest
+  - Tumblr
+  - Twitter
+  - YouTube
+  - RSS

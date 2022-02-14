@@ -1,0 +1,146 @@
+---
+title: Come back later
+heading: Come back later
+subtitle: >-
+  <b>We have reached our monthly limit</b>, our current budget doesn't allow us to create new accounts at the moment. Once the limit is reset to zero, come back to register. If you have already signed up and you need assistance, please feel free to contact us on Telegram.
+sitemap: false
+---
+
+<section class="diagonal patterned">
+	<div class="container">
+    <div id="countdown" class="timer">
+      <ul>
+        <li><span id="days"></span>days</li>
+        <li><span id="hours"></span>Hours</li>
+        <li><span id="minutes"></span>Minutes</li>
+        <li><span id="seconds"></span>Seconds</li>
+      </ul>
+    </div>
+	</div>
+</section>
+
+<section class="diagonal alternate">
+	<div class="container">
+
+<h3 class="editable">
+	Contact us on Telegram
+</h3>
+<p>
+  You will receive your login and password by email after your registration. If you don't receive this email within 48 hours or if you need assistance you can contact us on Telegram.
+</p>
+   <ul>
+     <li><a href="https://t.me/supeducation_en" target="_blank" rel="noopener">Support in English</a></li> 
+     <li><a href="https://t.me/supeducation_fr" target="_blank" rel="noopener">Support in French</a></li>
+     <li><a href="https://t.me/supeducation_ar" target="_blank" rel="noopener">Support in Arabic</a></li>
+    </ul>
+<p>
+  There are no paid employees. We are all volunteers who are not available 24/7 even though we do our best to get back to our members as soon as possible.
+</p>
+	</div>
+</section>
+
+<script>
+(function () {
+  const second = 1000,
+        minute = second * 60,
+        hour = minute * 60,
+        day = hour * 24;
+
+  let birthday = "Sep 23, 2021 12:00:00",
+      countDown = new Date(birthday).getTime(),
+      x = setInterval(function() {    
+
+        let now = new Date().getTime(),
+            distance = countDown - now;
+
+        document.getElementById("days").innerText = Math.floor(distance / (day)),
+          document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+          document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+          document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+        //do something later when date is reached
+        if (distance < 0) {
+          let //headline = document.getElementById("headline"),
+              countdown = document.getElementById("countdown"),
+              content = document.getElementById("content");
+
+          //headline.innerText = "It's my birthday!";
+          countdown.style.display = "none";
+          content.style.display = "block";
+
+          clearInterval(x);
+        }
+        //seconds
+      }, 0)
+  }());
+  </script>
+  
+  <style>
+  
+    /* general styling */
+    /*
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  align-items: center;
+  background-color: #ffd54f;
+  display: flex;
+  font-family: -apple-system, 
+    BlinkMacSystemFont, 
+    "Segoe UI", 
+    Roboto, 
+    Oxygen-Sans, 
+    Ubuntu, 
+    Cantarell, 
+    "Helvetica Neue", 
+    sans-serif;
+}
+*/
+.timer {
+  color: #333;
+  margin: 0 auto;
+  text-align: center;
+}
+
+  .timer li {
+  display: inline-block;
+  font-size: 1.5em;
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+.timer li span {
+  display: block;
+  font-size: 4.5rem;
+  line-height: 1.2;
+}
+
+/*
+@media all and (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  li {
+    font-size: 1.125rem;
+    padding: .75rem;
+  }
+  
+  li span {
+    font-size: 3.375rem;
+  }
+}
+*/
+
+
+  </style>

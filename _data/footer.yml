@@ -1,0 +1,38 @@
+- title: Useful links
+  links:
+    - name: Workplace
+      link: https://supeducation.workplace.com/
+    - name: Google Chat
+      link: https://chat.google.com/
+    - name: Google Calendar
+      link: https://calendar.google.com
+    - name: Google Docs
+      link: https://docs.google.com/
+- title: Réseaux sociaux
+  links:
+    - name: Facebook page
+      link: https://facebook.com/supeducation.org/
+      social_icon: Facebook
+      new_window: true
+    - name: Facebook group
+      link: https://facebook.com/groups/learnfrench.supeducation.org
+      social_icon: Facebook
+      new_window: true
+- title: Telegram
+  links:
+    - name: General information
+      link: https://t.me/supeducation/
+      social_icon:
+      new_window: true
+    - name: Support in English
+      link: https://t.me/supeducation_en/
+      social_icon:
+      new_window: true
+    - name: Support in French
+      link: https://t.me/supeducation_fr/
+      social_icon:
+      new_window: true
+    - name: Support in Arabic
+      link: https://t.me/supeducation_ar/
+      social_icon:
+      new_window: true

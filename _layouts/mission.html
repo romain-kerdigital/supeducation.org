@@ -1,0 +1,63 @@
+---
+layout: default
+---
+
+<section class="hero diagonal">
+	<div class="container">
+<div class="benevole-page">
+  <div class="benevole-page-image-name-position">
+  <div class="benevole-page-image"><img src="{% include relative-src.html src=page.image_path %}" alt="{{ page.name }}"/></div>
+    <div class="benevole-page-name-position">
+<div class="benevole-page-name"><h1>{{ page.name }}</h1></div>
+<div class="benevole-page-position"><h2>{{ page.position }}</h2></div>
+<div class="benevole-page-blurb"><p>{{ page.blurb }}</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="diagonal patterned">
+	<div class="container">
+<div class="benevole-page">
+  <div class="benevole-page-content"><p>{{ page.content | markdownify }}</p></div>
+</div>
+</div>
+</section>
+
+<section class="diagonal alternate">
+	<div class="container">
+<h3 class="editable">
+	Les bénévoles actuellement sur cette mission
+</h3>
+  <div class="staff">
+  {% for benevole in site.benevoles %}
+    {% for mission-benevole in benevole.missions %}
+      {% if mission-benevole == page.slug %}
+      {% if benevole.natif == true %}
+        <a href="{{ site.baseurl }}{{ benevole.url }}">
+			  	<img src="{{ site.baseurl }}{{ benevole.image_path }}" alt="{{ benevole.slug }}">
+			    <p>{{ benevole.name }}</p></a>
+			{% endif %}    
+    {% endif %}
+ {% endfor %}
+ {% endfor %}
+</div>
+<h3 class="editable">
+	Les apprenants devenus bénévoles actuellement sur cette mission
+</h3>
+  <div class="staff">
+  {% for benevole in site.benevoles %}
+    {% for mission-benevole in benevole.missions %}
+      {% if mission-benevole == page.slug %}
+      {% if benevole.natif == false %}
+        <a href="{{ site.baseurl }}{{ benevole.url }}">
+			  	<img src="{{ site.baseurl }}{{ benevole.image_path }}" alt="{{ benevole.slug }}">
+			    <p>{{ benevole.name }}</p></a>
+			{% endif %}    
+    {% endif %}
+ {% endfor %}
+ {% endfor %}
+</div>
+</div>
+</section>

@@ -1,0 +1,8 @@
+Sitemap: https://supeducation.org/sitemap.xml
+User-agent: *
+Noindex: /soutien-scolaire-en-ligne/
+Noindex: /soutien-scolaire-rennes/
+Noindex: /distribution-de-fournitures-scolaires/
+Noindex: /wp-content/uploads/2020/05/Calendrier-SupEducation.pdf
+Noindex: /boutique/
+Noindex: /full-calendar/

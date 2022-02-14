@@ -1,0 +1,208 @@
+---
+title: Meeting
+heading: Meeting
+subtitle: >-
+  Vous pouvez planifier des réunions sur cette page.
+sitemap: false
+---
+    <style>
+      .fancy {
+        position: relative;
+        background-color: green;
+        padding: 2rem;
+      }
+
+      .fancy::before {
+        content: "";
+        p {
+          color: black;
+        }
+        position : absolute;
+        z-index  : -1;
+        bottom   : 15px;
+        right    : 5px;
+        width    : 50%;
+        top      : 80%;
+        max-width: 200px;
+
+        box-shadow: 0px 13px 10px black;
+        transform: rotate(4deg);
+      }
+    </style>
+    
+<section class="diagonal alternate">
+	<div class="container">
+    <form action="https://supeducation.org/meeting-success" method="post" id="meeting-form" class="contact-form"> <!-- Redirect page -->
+		<input type="hidden" name="_hook" value="https://hook.integromat.com/hcqbp7ih2tl4691j2xay570vophyhidy" /> <!-- Webhook -->
+		<input type="text" name="_gotcha" style="display: none;"> <!-- Honeypot -->
+    
+    <label for="startingdate">Date de début</label>
+    <input type="date" id="startingdate" name="startingdate" required >
+    
+    <label for="sessionnumber">Nombre de réunions (1 séance par semaine)</label>
+    <input type="number" id="sessionnumber" name="sessionnumber" oninput="enddate()" min="1" max="10" required>
+    <script>
+      function enddate(){
+        var d = new Date(document.getElementById('startingdate').value);
+        var weekday = new Array(7);
+        weekday[0] = "dimanche";
+        weekday[1] = "lundi";
+        weekday[2] = "mardi";
+        weekday[3] = "mercredi";
+        weekday[4] = "jeudi";
+        weekday[5] = "vendredi";
+        weekday[6] = "samedi";
+        var n = weekday[d.getDay()];
+      //var endingdate = selecteddate+sessionnumber*7;
+      document.getElementById('startdate').innerHTML = document.getElementById('startingdate').value;
+      document.getElementById('startdateweekday').innerHTML = n;
+      document.getElementById('number').innerHTML = document.getElementById('sessionnumber').value;
+      //document.getElementById('enddate').innerHTML = endingdate;
+      }
+    </script>
+		
+      <label for="email">Votre email</label>
+      <input type="email" name="email" id="email" placeholder="prenom.nom@supeducation.org">
+      <span id="email-toValidateMessage"></span>
+    
+    <label for="team">Quelle équipe ?</label>
+    <div class="select"><select name="team" id="team" required>
+      <option value="" selected disabled hidden>Choisir</option>
+      <option value="99">99 - Tous les bénévoles</option>
+      <option value="CA">CA - Conseil d'Administration</option>
+      <option value="00">00 - Comité de direction (Responsables de pôles)</option>
+      <option value="10">10 - Comité de pilotage Administratif</option>
+      <option value="20">20 - Comité de pilotage Communication</option>
+      <option value="21">21 - Equipe Conquête</option>
+      <option value="22">22 - Equipe Design</option>
+      <option value="23">23 - Equipe Médias</option>
+      <option value="30">30 - Comité de pilotage Intégration</option>
+      <option value="31">31 - Equipe Accueil</option>
+      <option value="32">32 - Equipe Modérateurs</option>
+      <option value="33">33 - Equipe Support</option>
+      <option value="40">40 - Comité de pilotage Pédagogique</option>
+      <option value="41">41 - Equipe Animateurs (N2 et N3)</option>
+      <option value="42">42 - Equipe Enseignants (N0 et N1)</option>
+      <option value="43">43 - Equipe Contenu pédagogique</option>
+      <option value="44">44 - Equipe Planning</option>
+    </select></div>
+		
+      <label for="schedule">Créneau réunion (heure française)</label>
+	    <div class="select"><select name="schedule" id="schedule">
+        <option value="" selected disabled hidden>Choisir</option>
+        <option value="08:00">08:00 - 08:45</option>
+        <option value="09:00">09:00 - 09:45</option>
+        <option value="10:00">10:00 - 10:45</option>
+        <option value="11:00">11:00 - 11:45</option>
+        <option value="12:00">12:00 - 12:45</option>
+        <option value="13:00">13:00 - 13:45</option>
+        <option value="14:00">14:00 - 14:45</option>
+        <option value="15:00">15:00 - 15:45</option>
+        <option value="16:00">16:00 - 16:45</option>
+        <option value="17:00">17:00 - 17:45</option>
+        <option value="18:00">18:00 - 18:45</option>
+        <option value="19:00">19:00 - 19:45</option>
+        <option value="20:00">20:00 - 20:45</option>
+        <option value="21:00">21:00 - 21:45</option>
+        <option value="22:00">22:00 - 22:45</option>
+        <option value="23:00">23:00 - 23:45</option>
+      </select></div>
+
+    
+    <label for="description">Ordre du jour (Optionnel)</label>
+    <textarea name="description" id="description" placeholder="Décrire ici le déroulement de la réunion"></textarea>
+
+		<div class="fancy" id="sessionnumberexplanation">
+      <p>Les réunions démarreront le <b><span id="startdateweekday"></span></b> <b><span id="startdate"></span></b></p>
+      <p>Elles auront lieu une fois par semaine le <b><span id="startdateweekday"></span></b> pendant <b><span id="number"></span></b> semaines.</p>
+    </div>
+    
+    <div class="checkbox">
+      <label for="authorization" class="container"> Je confirme que j'ai l'autorisation de planifier ces séances.
+      <input type="checkbox" name="authorization" id="authorization" required>
+      <span class="checkmark"></span>
+      </label>
+    </div>
+
+		<input type="submit" value="Submit" />
+	  </form>
+
+	</div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  document.getElementById('startingdate').value = new Date().toISOString().slice(0, 10);
+</script>
+<script>
+//Validate email
+const email_toValidateMessage = $("#email-toValidateMessage");
+const email_toValidate = $("#email");
+const email_regex = /^[a-z]{2,}\.[a-z]{2,}@supeducation\.org$/; // /^[a-zA-Z\- ]{2,20}$/;
+
+function emailValidate() {
+email_toValidateMessage.text("");
+if (email_regex.test(email_toValidate.val())) {
+email_toValidateMessage.text(email_toValidate.val() + " is valid");
+email_toValidateMessage.css("background-color", "green");
+} else {
+email_toValidateMessage.text(email_toValidate.val() + " is not valid. The format is firstname.lastname@supeducation.org");
+email_toValidateMessage.css("background-color", "red");
+}
+return false;
+}
+
+
+email_toValidate.on("input", emailValidate);
+
+
+// After sessionnumberexplanation
+$("#sessionnumber").change(function() {
+    if ($(this).val() > 0) {
+      $('#sessionnumberexplanation').show();
+    } 
+    else {
+      $('#sessionnumberexplanation').hide();
+    }
+  });
+  $("#sessionnumber").trigger("change");
+  
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LcAVWcbAAAAAOa6mv8_vsO0KcPysGmI6fepXnmj"></script>
+<script>
+  var submitted = false;
+  var tokenCreated = false;
+  var formEl = document.getElementById('meeting-form');
+
+  formEl.addEventListener("submit", function (event) {
+
+    // Check if the recaptcha exists
+    if (!tokenCreated) {
+
+      // Prevent submission
+      event.preventDefault();
+
+      // Prevent more than one submission
+      if (!submitted) {
+        submitted = true;
+        // needs for recaptacha ready
+        grecaptcha.ready(function() {
+          // do request for recaptcha token
+          // response is promise with passed token
+          grecaptcha.execute('6LcAVWcbAAAAAOa6mv8_vsO0KcPysGmI6fepXnmj', {action: 'create_comment'}).then(function (token) {
+            // add token to form
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "g-recaptcha-response";
+            input.value = token;
+            formEl.appendChild(input);
+
+            // resubmit the form
+            tokenCreated = true;
+            formEl.submit();
+          });
+        });
+      }
+    }
+  });
+</script>
