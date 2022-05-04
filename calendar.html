@@ -10,12 +10,32 @@ title: Association SupEducation à Rennes
 		<p class="subtext editable">
 		  SupEducation is a French non-profit organization building an online French learning community where members can sign up for free and join as many classes as they want to practice French. 
 		</p>
+		
+		
 		  <div id='top'>
 
-    Locales:
+    <div class='left'>
+      Timezone:
+      <select id='time-zone-selector'>
+        <option value='local' selected>local</option>
+        <option value='UTC'>UTC</option>
+      </select>
+    </div>
+
+    <div class='right'>
+      <span id='loading'>loading...</span>
+      <span id='script-warning'><code>php/get-events.php</code> must be running.</span>
+    </div>
+
+    <div class='clear'></div>
+
+  
+  
+  Locales:
     <select id='locale-selector'></select>
 
-  </div>
+</div>
+  
     <div id='calendar'></div>
 		<p><a class="button alt" href="https://supeducation.org/signup">Sign up for free</a></p>
 	</div>
