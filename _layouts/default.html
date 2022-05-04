@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
+    locales: [ esLocale, frLocale ],
+    locale: 'fr'
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
@@ -68,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
   });
-
+calendar.setOption('locale', 'es');
   calendar.render();
 });
 
