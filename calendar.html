@@ -10,6 +10,19 @@ title: Association SupEducation à Rennes
 		<p class="subtext editable">
 		  SupEducation is a French non-profit organization building an online French learning community where members can sign up for free and join as many classes as they want to practice French. 
 		</p>
+	<script>
+		var calendar = new FullCalendar.Calendar(calendarEl, {
+  // no plugin config required!
+});
+
+let calendar = new Calendar(calendarEl, {
+  plugins: [ googleCalendarPlugin ],
+  googleCalendarApiKey: 'AIzaSyB-Oju7FalMkLE6HQAAjCJMSZ2cxDsplW0',
+  events: {
+    googleCalendarId: 'c_cmo1sc86g4m5dmdgbas6d4c1jc@group.calendar.google.com'
+  }
+});
+</script>
     <div id='calendar'></div>
 		<p><a class="button alt" href="https://supeducation.org/signup">Sign up for free</a></p>
 	</div>
