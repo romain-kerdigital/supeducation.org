@@ -30,7 +30,13 @@
 		var calendar = new FullCalendar.Calendar(calendarEl, {
   // no plugin config required!
 });
-
+let calendar = new Calendar(calendarEl, {
+  plugins: [ googleCalendarPlugin ],
+  googleCalendarApiKey: 'AIzaSyB-Oju7FalMkLE6HQAAjCJMSZ2cxDsplW0',
+  events: {
+    googleCalendarId: 'c_cmo1sc86g4m5dmdgbas6d4c1jc@group.calendar.google.com'
+  }
+});
     </script>
 
 		{% if jekyll.environment == 'production' and site.google_analytics_key != '' %}
