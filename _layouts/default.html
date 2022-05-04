@@ -41,7 +41,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     googleCalendarApiKey: 'AIzaSyB-Oju7FalMkLE6HQAAjCJMSZ2cxDsplW0',
 
-    events: 'c_cmo1sc86g4m5dmdgbas6d4c1jc@group.calendar.google.com',
+
+    eventSources: [
+        {
+          googleCalendarId: 'c_classroom3ed5e68c@group.calendar.google.com'
+        },
+        {
+          googleCalendarId: 'c_classroom580ee7bd@group.calendar.google.com'
+        },
+        {
+          googleCalendarId: 'c_classroom7843c6f0@group.calendar.google.com'
+        }
+        ],
+        
+    //events: 'c_cmo1sc86g4m5dmdgbas6d4c1jc@group.calendar.google.com',
 
     eventClick: function(arg) {
 
