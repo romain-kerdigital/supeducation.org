@@ -1,26 +1,21 @@
----
-title: Welcome to SupEducation !
-heading: Welcome to SupEducation !
-subtitle: >-
-  Your registration is confirmed. DO NOT sign up again. If you sign up twice, both accounts will be deleted. If you encounter technical issues or if you have forgotten your password, please contact us in the chat at the bottom at the page.</a>.
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link href='fullcalendar/main.css' rel='stylesheet' />
+    <script src='fullcalendar/main.js'></script>
+    <script>
 
-sitemap: false
----
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
 
-<section class="diagonal patterned">
-	<div class="container">
-
-    <h3 class="editable">
-	    Calendar
-    </h3>
-      <div id='calendar'></div>
-	</div>
-</section>
-
-<section id="telegram" class="diagonal alternate">
-	<div class="container">
-    <h3 class="editable">
-      Text
-    </h3>
-	</div>
-</section>
+    </script>
+  </head>
+  <body>
+    <div id='calendar'></div>
+  </body>
+</html>
