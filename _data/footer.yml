@@ -8,7 +8,7 @@
       link: https://reviews.supeducation.org/
     - name: '"Learn French" the student platform'
       link: https://learnfrench.supeducation.org
-- title: Réseaux sociaux
+- title: Social Media
   links:
     - name: Facebook page
       link: https://facebook.com/supeducation.org/
@@ -17,10 +17,4 @@
     - name: Facebook group
       link: https://facebook.com/groups/learnfrench.supeducation.org
       social_icon: Facebook
-      new_window: true
-- title: Telegram
-  links:
-    - name: General information
-      link: https://t.me/supeducation/
-      social_icon:
       new_window: true
